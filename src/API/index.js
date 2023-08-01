@@ -21,7 +21,7 @@ export async function getSinglePlayer (id) {
     }
 }
 
-export async function addNewPlayer(name, breed) {
+export async function addNewPlayer(name, breed, status, imageUrl) {
 
     try {
         const response = await fetch(`${API}`, {
@@ -29,10 +29,10 @@ export async function addNewPlayer(name, breed) {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ name, breed }),
+            body: JSON.stringify({ name, breed, status, imageUrl}),
         });
         const result = await response.json();
-        window.location.reload();
+        // window.location.reload();
         console.log(result);
     } catch (error) {
         console.error(error);
@@ -63,8 +63,8 @@ export async function removePlayer(id) {
         const result = await response.json();
         
         console.warn(result)
-        // await getAllPlayers(result);
-        window.location.reload();
+         getAllPlayers(result);
+        // window.location.reload();
     } catch (error) {
         console.error(error);
     }
