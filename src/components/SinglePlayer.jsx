@@ -22,6 +22,8 @@ export default function SinglePlayer(){
         <img style={{height: "150px"}} src= {player.imageUrl}/>
         <h2>{player.breed}</h2>
         {player.status}<br/>
+        {player.team ? (<h2>{player.team.name}</h2>): null}
+
         {/* {player.team.name}; */}
         </>
     )
