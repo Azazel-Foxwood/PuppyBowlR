@@ -24,12 +24,26 @@ export async function getSinglePlayer (id) {
 export async function addNewPlayer(name, breed) {
 
     try {
-        const response = await fetch("https://fsa-puppy-bowl.herokuapp.com/api/2302-acc-ct-web-pt-a/players", {
+        const response = await fetch(`${API}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({ name, breed }),
+        });
+        const result = await response.json();
+        window.location.reload();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+export async function removePlayer (id) {
+    console.log({id});
+    try {
+        const response = await fetch(`${API}/${id}`, {
+            method: 'DELETE',
         });
         const result = await response.json();
         window.location.reload();

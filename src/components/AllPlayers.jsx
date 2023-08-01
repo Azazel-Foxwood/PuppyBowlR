@@ -1,8 +1,9 @@
-import { useEffect} from 'react'
-import { getAllPlayers } from '../API'
+import { useEffect} from 'react';
+import { getAllPlayers, removePlayer } from '../API';
 import { useNavigate } from 'react-router-dom';
 import NewPlayerForm from './NewPlayer';
-import SearchBar from './SearchBar'
+import SearchBar from './SearchBar';
+import DeletePlayer from './DeletePlayer';
 
 export default function AllPlayers({ players, setPlayers }) {
     
@@ -22,13 +23,14 @@ export default function AllPlayers({ players, setPlayers }) {
         <>
         <SearchBar setPlayers={setPlayers} players={players}/>
         <NewPlayerForm/>
-            {players.map((all, id) =>(
+            {players.map((player, id) =>(
                 <div key={id}>
                     <h1>
-                        {all.name}
+                        {player.name}
                         </h1>
-                <img style={{height: "150px"}} src ={all.imageUrl}></img>
-                <button onClick={() => {navigate(`/players/${all.id}`)}}>see more</button>
+                <img style={{height: "150px"}} src ={player.imageUrl}></img>
+                <button onClick={() => {navigate(`/players/${player.id}`)}}>see more</button>
+                <button onClick={async() => {await removePlayer(player.id)}}>delete</button>
                 </div>
             ))}
             {/* <button onClick={() => navigate(`/${all.id}`)}>see more</button> */}
