@@ -1,7 +1,7 @@
 const cohort = "2302-acc-ct-web-pt-a";
 const API = `https://fsa-puppy-bowl.herokuapp.com/api/${cohort}/players`;
 
-export async function allPlayers () {
+export async function getAllPlayers () {
         try {
                 const response = await fetch(`${API}`);
                 const result = await response.json();
@@ -11,7 +11,7 @@ export async function allPlayers () {
         }
     }
 
-export async function singlePlayer (id) {
+export async function getSinglePlayer (id) {
     try {
         const response = await fetch(`${API}/${id}`);
         const result = await response.json();
@@ -32,6 +32,7 @@ export async function addNewPlayer(name, breed) {
             body: JSON.stringify({ name, breed }),
         });
         const result = await response.json();
+        window.location.reload();
         console.log(result);
     } catch (error) {
         console.error(error);

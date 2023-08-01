@@ -1,29 +1,26 @@
-import {useState, useEffect} from 'react'
-import { allPlayers } from '../API'
+import { useEffect} from 'react'
+import { getAllPlayers } from '../API'
 import { useNavigate } from 'react-router-dom';
-import SinglePlayer from './SinglePlayer';
 import NewPlayerForm from './NewPlayer';
+import SearchBar from './SearchBar'
 
-export default function AllPlayers() {
-    const [players, setPlayers] = useState([])
+export default function AllPlayers({ players, setPlayers }) {
+    
 
-    // function handleClick(){
-        
-    //     console.log('click')
-    // }
     useEffect(() => {
-        async function getAllPlayers () {
-                const response = await allPlayers();
+        async function fetchAllPlayers () {
+                const response = await getAllPlayers();
                 console.log(response);
                 setPlayers(response);
         }
-        getAllPlayers();
-    }, []); 
+        fetchAllPlayers();
+    }, [setPlayers]); 
 
     const navigate = useNavigate();
 
     return (
         <>
+        <SearchBar setPlayers={setPlayers} players={players}/>
         <NewPlayerForm/>
             {players.map((all, id) =>(
                 <div key={id}>
