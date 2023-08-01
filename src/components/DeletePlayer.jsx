@@ -1,15 +1,31 @@
 import { useEffect } from "react";
-import { removePlayer } from '../API';
+import { removePlayer, getAllPlayers } from '../API';
 
-export default function DeletePlayer({ players, setPlayers }){
+export default function DeletePlayer({ players, setPlayers, player }){
+
+    // useEffect (() => {
+    //     async function fetchAllPlayers () {
+    //         const response = await getAllPlayers();
+    //         setPlayers(response);
+    //     }
+    //     fetchAllPlayers();
+    // }, [setPlayers])
 
     useEffect(() => {
         async function byePlayer () {
-            const response = await removePlayer();
-            console.log(response)
-            setPlayers(response)
+            await removePlayer(player.id);
+            getAllPlayers()
         }
         byePlayer();
     })
    console.log("trying")
+//    return (
+//     <>
+//     {players.map((player, id) =>(
+//         <div key={id}>
+//         <button onClick={() => {removePlayer(player.id)}}>delete</button>
+//         </div>
+//     ))}
+//     </>
+//    )
 }
