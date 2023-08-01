@@ -23,10 +23,10 @@ export default function AllPlayers({ players, setPlayers }) {
         <NewPlayerForm/>
         <div id='Allplayers'>
             {players.map((player, id) =>(
-                <div key={id}>
-                    <h1>
+                <div id="player"key={id}>
+                    <h3> 
                         {player.name}
-                        </h1>
+                        </h3>
                     <img style={{height: "150px"}} alt={player.name}src ={player.imageUrl}></img>
                 <div id='buttons'>
                     <button onClick={() => {navigate(`/players/${player.id}`)}}>see more</button>
