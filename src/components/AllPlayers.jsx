@@ -20,8 +20,11 @@ export default function AllPlayers({ players, setPlayers }) {
     return (
         <>
         <SearchBar setPlayers={setPlayers} players={players}/>
+
         <NewPlayerForm/>
+
         <div id='Allplayers'>
+
             {players.map((player, id) =>(
                 <div id="player"key={id}>
                     <h3> 

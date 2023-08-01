@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import {getSinglePlayer} from '../API';
+import {getSinglePlayer, removePlayer} from '../API';
 
 export default function SinglePlayer(){
     const { id } = useParams();
@@ -15,6 +15,9 @@ export default function SinglePlayer(){
         }
         fetchSinglePlayer();
     }, [id]);
+
+    const navigate = useNavigate();
+
     return (
         <>
         
@@ -22,10 +25,14 @@ export default function SinglePlayer(){
         <img style={{height: "150px"}} src= {player.imageUrl}/>
         <h2>{player.breed}</h2>
         <p>Born: {player.createdAt}</p>
-        <p>{player.cohortId}</p>
+        <p>Cohort Team: {player.cohortId}</p>
         <p>Jersey Number: #{player.id}</p>
         {player.status}<br/>
         {player.team ? (<h2>{player.team.name}</h2>): null}
+        <div id='buttons'>
+            <button onClick={() => {navigate(-1)}}>Return</button>
+            <button onClick={() => {removePlayer(player.id); {navigate(-1)}}}>delete</button>
+        </div>
 
         {/* {player.team.name}; */}
         </>
