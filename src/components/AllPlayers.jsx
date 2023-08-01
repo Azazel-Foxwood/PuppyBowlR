@@ -19,7 +19,7 @@ export default function AllPlayers({ players, setPlayers }) {
 
     return (
         <>
-        <SearchBar setPlayers={setPlayers} players={players}/>
+        {/* <SearchBar setPlayers={setPlayers} players={players}/> */}
 
         <NewPlayerForm/>
 
@@ -32,8 +32,10 @@ export default function AllPlayers({ players, setPlayers }) {
                         </h3>
                     <img style={{height: "150px"}} alt={player.name}src ={player.imageUrl}></img>
                 <div id='buttons'>
-                    <button onClick={() => {navigate(`/players/${player.id}`)}}>see more</button>
-                    <button onClick={() => {removePlayer(player.id)}}>delete</button>
+                    <div className='button'>
+                    <button className='seeMore' onClick={() => {navigate(`/players/${player.id}`)}}>see more</button>
+                    </div>
+                    <button className='deleteButton' onClick={() => {removePlayer(player.id)}}>delete</button>
                     </div>
                 </div>
             ))}
