@@ -21,7 +21,7 @@ export async function getSinglePlayer (id) {
     }
 }
 
-export async function addNewPlayer(name, breed, status, imageUrl) {
+export async function addNewPlayer(name, breed, status, imageUrl, team) {
 
     try {
         const response = await fetch(`${API}`, {
@@ -29,7 +29,7 @@ export async function addNewPlayer(name, breed, status, imageUrl) {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ name, breed, status, imageUrl}),
+            body: JSON.stringify({ name, breed, status, imageUrl, team}),
         });
         const result = await response.json();
         // window.location.reload();
