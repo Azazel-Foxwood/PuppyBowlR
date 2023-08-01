@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import { allPlayers } from '../API'
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import SinglePlayer from './SinglePlayer';
 
 export default function AllPlayers() {
@@ -18,7 +18,9 @@ export default function AllPlayers() {
         }
         getAllPlayers();
     }, []); 
-    // const navigate = useNavigate();
+
+    const navigate = useNavigate();
+
     return (
         <>
             {players.map((all, id) =>(
@@ -27,7 +29,7 @@ export default function AllPlayers() {
                         {all.name}
                         </h1>
                 <img style={{height: "150px"}} src ={all.imageUrl}></img>
-                <button onClick={() => {<SinglePlayer/>}}>see more</button>
+                <button onClick={() => {navigate(`/players/${all.id}`)}}>see more</button>
                 </div>
             ))}
             {/* <button onClick={() => navigate(`/${all.id}`)}>see more</button> */}

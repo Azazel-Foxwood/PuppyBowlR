@@ -11,11 +11,11 @@ export async function allPlayers () {
         }
     }
 
-export async function singlePlayer () {
+export async function singlePlayer (id) {
     try {
-        const response = await fetch(`${API}/id`);
+        const response = await fetch(`${API}/${id}`);
         const result = await response.json();
-        return result.data;
+        return result.data.player;
     } catch (error) {
         console.error(error);
     }
