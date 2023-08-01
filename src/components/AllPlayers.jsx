@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import { allPlayers } from '../API'
 import { useNavigate } from 'react-router-dom';
 import SinglePlayer from './SinglePlayer';
+import NewPlayerForm from './NewPlayer';
 
 export default function AllPlayers() {
     const [players, setPlayers] = useState([])
@@ -23,6 +24,7 @@ export default function AllPlayers() {
 
     return (
         <>
+        <NewPlayerForm/>
             {players.map((all, id) =>(
                 <div key={id}>
                     <h1>
@@ -33,7 +35,7 @@ export default function AllPlayers() {
                 </div>
             ))}
             {/* <button onClick={() => navigate(`/${all.id}`)}>see more</button> */}
-            <h1>🥲</h1>
+            
         </>
     )
 }
