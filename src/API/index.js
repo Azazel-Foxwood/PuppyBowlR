@@ -20,3 +20,21 @@ export async function singlePlayer (id) {
         console.error(error);
     }
 }
+
+export async function addNewPlayer() { // GET /api/COHORT-NAME/players/]
+    try {
+        const response = await fetch(`${API}`, {
+        method: "POST",
+        body: JSON.stringify({name, breed }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const result = await response.json();
+    //   window.location.reload();
+      return result;
+    } catch (err) {
+      console.error("Oops, something went wrong with adding that player!", err);
+    }
+  }
