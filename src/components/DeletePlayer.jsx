@@ -14,7 +14,7 @@ export default function DeletePlayer({ players, setPlayers, player }){
     useEffect(() => {
         async function byePlayer () {
             await removePlayer(player.id);
-            getAllPlayers()
+            getAllPlayers(setPlayers);
         }
         byePlayer();
     })

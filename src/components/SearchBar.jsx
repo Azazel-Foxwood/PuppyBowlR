@@ -16,7 +16,7 @@ export default function SearchBar ({ players, setPlayers }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-
+        alert('To return clear search and hit enter')
         if (search === '') {setPlayers(allPlayers); return;}
 
         const filtered = [];
@@ -37,11 +37,14 @@ export default function SearchBar ({ players, setPlayers }) {
     // console.log({allPlayers})
     return (
         <div id='search'>
-
+Can't find your Pup?:
             <form onSubmit={handleSubmit}>
-                <p>Search for puppy
-            <input value={search} onChange={(e) => setSearch(e.target.value)} required/>
-            </p></form>
+                <label>
+              <input value={search} onChange={(e) => setSearch(e.target.value)}
+            placeholder='Search Puppies' />
+                </label>
+                
+            </form><button className="enter">Search</button>
         </div>
     )
 }
