@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-#Allplayers{
+#Allplayers {
   display: flex;
   flex-direction: wrap;
   justify-content: space-evenly;
@@ -15,6 +15,34 @@
   flex-direction: row;
   justify-content: space-evenly;
  }
+#player{
+  flex-basis: 200px;
+  /* flex-grow: 1; */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+  margin: 5px 10px;
+  padding: 10px;
+  text-align: center;
+  background-color: rgba(39, 74, 102, 0.5);
+  max-width: 209.6px;
+  height: 335.2px;
+  overflow:auto;
+  /* object-fit: cover; */
+}
+#player::-webkit-scrollbar{
+  display: none;
+}
+
+#player > img {
+  object-fit: cover;
+}
+#player > #button {
+  margin:30px;
+}
+
+
+
 /* .logo {
   height: 6em;
   padding: 1.5em;
