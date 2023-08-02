@@ -10,7 +10,11 @@
   flex-direction: wrap;
   justify-content: space-evenly;
 }
-
+ #newPlayer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+ }
 /* .logo {
   height: 6em;
   padding: 1.5em;

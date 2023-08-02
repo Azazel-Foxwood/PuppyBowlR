@@ -10,7 +10,7 @@ export default function AllPlayers({ players, setPlayers }) {
 
     useEffect(() => {
         async function fetchAllPlayers () {
-                setPlayers(await getAllPlayers());
+                setPlayers(await getAllPlayers(setPlayers));
         }
         fetchAllPlayers();
     }, [setPlayers]); 
@@ -27,9 +27,11 @@ export default function AllPlayers({ players, setPlayers }) {
                     <h1>
                         {player.name}
                         </h1>
-                <img style={{height: "150px"}} src ={player.imageUrl}></img>
-                <button onClick={() => {navigate(`/players/${player.id}`)}}>see more</button>
-                <button onClick={() => {removePlayer(player.id)}}>delete</button>
+                    <img style={{height: "150px"}} alt={player.name}src ={player.imageUrl}></img>
+                <div id='buttons'>
+                    <button onClick={() => {navigate(`/players/${player.id}`)}}>see more</button>
+                    <button onClick={() => {removePlayer(player.id)}}>delete</button>
+                    </div>
                 </div>
             ))}
             </div>

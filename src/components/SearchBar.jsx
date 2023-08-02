@@ -18,9 +18,14 @@ export default function SearchBar ({ players, setPlayers }) {
         e.preventDefault();
 
         if (search === '') {setPlayers(allPlayers); return;}
+
         const filtered = [];
+
         players.forEach((singlePlayer) => {
             if (singlePlayer.name.toLowerCase().includes(search.toLowerCase())){
+                filtered.push(singlePlayer)
+            }
+            if(singlePlayer.breed.toLowerCase().includes(search.toLowerCase())){
                 filtered.push(singlePlayer)
             }
         })
