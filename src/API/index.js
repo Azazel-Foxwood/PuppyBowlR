@@ -39,16 +39,44 @@ export async function addNewPlayer(name, breed) {
     }
 }
 
-export async function removePlayer (id) {
-    console.log({id});
+// export async function removePlayer (id) {
+//     console.log({id});
+//     try {
+//         const response = await fetch(`${API}/${id}`, {
+//             method: 'DELETE',
+//         });
+//         const result = await response.json();
+//         // window.location.reload();
+//         getAllPlayers();
+//         console.log(result);
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
+
+export async function removePlayer(id) {
+
     try {
         const response = await fetch(`${API}/${id}`, {
-            method: 'DELETE',
-        });
+                method: 'DELETE',
+                });
         const result = await response.json();
+        
+        console.warn(result)
+        // await getAllPlayers(result);
         window.location.reload();
-        console.log(result);
     } catch (error) {
         console.error(error);
     }
+
+
+
+        // fetch(`${API}/${id}`, {
+    //     method: 'DELETE'
+    // }).then((result)=>{
+    //     result.json().then((resp)=>{
+    //         console.warn(resp)
+    //         getAllPlayers()
+    //     })
+    // })
 }
