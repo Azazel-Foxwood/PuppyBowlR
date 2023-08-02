@@ -1,20 +1,20 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import {singlePlayer} from '../API';
+import {getSinglePlayer} from '../API';
 
 export default function SinglePlayer(){
     const { id } = useParams();
 
     const [player, setPlayer] = useState([])
     useEffect(() => {
-        async function getSinglePlayer () {
-                const response = await singlePlayer(id);
+        async function fetchSinglePlayer () {
+                const response = await getSinglePlayer(id);
                 console.log(response);
                 setPlayer(response);
                 // (player.team.name ? player.team.name : '')
         }
-        getSinglePlayer();
-    }, []);
+        fetchSinglePlayer();
+    }, [id]);
     return (
         <>
         

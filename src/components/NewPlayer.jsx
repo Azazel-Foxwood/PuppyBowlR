@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {addNewPlayer} from '../API';
 
 export default function NewPlayerForm (){
