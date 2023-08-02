@@ -3,24 +3,21 @@ import { useEffect, useState } from "react";
 import { getSinglePlayer, removePlayer } from '../API';
 
 export default function SinglePlayer() {
-    const { id } = useParams();
 
+    const { id } = useParams();
+    const navigate = useNavigate();
     const [player, setPlayer] = useState([])
+    
     useEffect(() => {
         async function fetchSinglePlayer() {
             const response = await getSinglePlayer(id);
-            console.log(response);
             setPlayer(response);
-            // (player.team.name ? player.team.name : '')
         }
         fetchSinglePlayer();
     }, []);
 
-    const navigate = useNavigate();
-
     return (
         <div id="singlePlayer">
-
             <h2>{player.name}</h2>
             <img style={{ height: "13em" }} src={player.imageUrl} />
             <h3>{player.breed}</h3>
@@ -35,8 +32,6 @@ export default function SinglePlayer() {
                 <button className='seeMore' onClick={() => { navigate(-1) }}>Return</button>
                 <button className='deleteButton' onClick={() => { removePlayer(player.id); { navigate(-1) } }}>delete</button>
             </div>
-
-            {/* {player.team.name}; */}
         </div>
     )
 }
