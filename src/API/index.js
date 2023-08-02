@@ -21,20 +21,19 @@ export async function singlePlayer (id) {
     }
 }
 
-export async function addNewPlayer() { // GET /api/COHORT-NAME/players/]
-    try {
-        const response = await fetch(`${API}`, {
-        method: "POST",
-        body: JSON.stringify({name, breed }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+export async function addNewPlayer(name, breed) {
 
-      const result = await response.json();
-    //   window.location.reload();
-      return result;
-    } catch (err) {
-      console.error("Oops, something went wrong with adding that player!", err);
+    try {
+        const response = await fetch("https://fsa-puppy-bowl.herokuapp.com/api/2302-acc-ct-web-pt-a/players", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name, breed }),
+        });
+        const result = await response.json();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
     }
-  }
+}
