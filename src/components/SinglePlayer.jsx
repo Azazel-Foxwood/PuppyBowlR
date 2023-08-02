@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getSinglePlayer, removePlayer } from '../API';
-
+import SearchBar from "./SearchBar";
 export default function SinglePlayer() {
 
     const { id } = useParams();
@@ -14,7 +14,7 @@ export default function SinglePlayer() {
             setPlayer(response);
         }
         fetchSinglePlayer();
-    }, []);
+    });
 
     return (
         <div id="singlePlayer">
