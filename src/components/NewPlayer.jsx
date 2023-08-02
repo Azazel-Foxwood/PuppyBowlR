@@ -8,6 +8,7 @@ export default function NewPlayerForm (){
     const [breed, setBreed] = useState([]);
     const [status, setStatus] = useState([]);
     const [imageUrl, setImageUrl] = useState([]);
+    // const [team, setTeam] = useState([]);
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -47,7 +48,10 @@ export default function NewPlayerForm (){
                     <input value={imageUrl}  onChange={(e) => setImageUrl(e.target.value)}
                     placeholder="Enter Image URL"required/>
                 </label>
-
+                {/* <label id="team">
+                    <div className="team">Team: </div>
+                    <input value={team} onChange={(e) => setTeam(e.target.value)}/>
+                </label> */}
                 <label id="status">
                     <div className="status">Status:</div>
                     <input value={status} onChange={(e) => setStatus(e.target.value.toLowerCase())}
