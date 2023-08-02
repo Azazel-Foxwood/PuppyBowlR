@@ -28,6 +28,9 @@ export default function SearchBar ({ players, setPlayers }) {
             if(singlePlayer.breed.toLowerCase().includes(search.toLowerCase())){
                 filtered.push(singlePlayer)
             }
+            if(singlePlayer.status.toLowerCase().includes(search.toLowerCase())){
+                filtered.push(singlePlayer)
+            }
         })
         setPlayers(filtered);
     }
