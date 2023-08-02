@@ -4,12 +4,55 @@
   padding: 2rem;
   text-align: center;
 }
+.App {
+margin-top: 3.5em;
 
+}
+/* footer{
+  display: flex;
+  position: fixed;
+  margin-top: auto;
+} */
+
+header{
+  width: 50%;
+  height: 3rem;
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 255, 0.196);
+  position: fixed;
+  font-weight: 600;
+  font-size: x-large;
+  color: aliceblue;
+}
+
+/* #search{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+} */
+
+button{
+  font-family: Arial, Helvetica, sans-serif;
+  /* border-radius: 10px; */
+  transition: opacity 0.2s;
+  font-size: .9em;
+}
+.deleteButton:hover{
+  background-color:  rgba(196, 16, 16, 0.933);
+}
 #Allplayers {
   display: flex;
   flex-direction: wrap;
   justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(160px, 1fr));
+  margin-top: 2em;
 }
+
  #newPlayer{
   display: flex;
   flex-direction: row;
@@ -26,7 +69,7 @@
   text-align: center;
   background-color: rgba(39, 74, 102, 0.5);
   max-width: 209.6px;
-  height: 335.2px;
+  height: 400px;
   overflow:auto;
   /* object-fit: cover; */
 }
@@ -37,8 +80,8 @@
 #player > img {
   object-fit: cover;
 }
-#player > #button {
-  margin:30px;
+.seeMore{
+  margin:15px;
 }
 
 

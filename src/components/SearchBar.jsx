@@ -36,12 +36,12 @@ export default function SearchBar ({ players, setPlayers }) {
     }
     // console.log({allPlayers})
     return (
-        <div>
+        <div id='search'>
 
             <form onSubmit={handleSubmit}>
-                Search for puppy
+                <p>Search for puppy
             <input value={search} onChange={(e) => setSearch(e.target.value)} required/>
-            </form>
+            </p></form>
         </div>
     )
 }
