@@ -31,16 +31,18 @@ export default function NewPlayerForm (){
 }
 
     return( 
-        <>
+        <div id="newPlayer">
             <h2>Enter Your Pup to the Roaster</h2>
-            <form id="newPlayer" method="post" onSubmit={handleSubmit}>
+            <form className="newPlayer" method="post" onSubmit={handleSubmit}>
                 <label id="name">
-                    <div className="name">DOG NAME: {""} </div>
-                    <input value={name} onChange={(e) => setName(e.target.value)} required/><br />
+                    <div className="name">Dog Name: {""} </div>
+                    <input value={name} onChange={(e) => setName(e.target.value)}
+                    placeholder="Enter Name" required/><br />
                 </label>
                 <label id="breed">
-                    <div className="breed">BREED: {""}</div>
-                    <input value={breed} onChange={(e) => setBreed(e.target.value)} required/>
+                    <div className="breed">Breed: {""}</div>
+                    <input value={breed} onChange={(e) => setBreed(e.target.value)}
+                    placeholder="Enter Breed" required/>
                 </label>
 
                 <label id="image">
@@ -55,13 +57,14 @@ export default function NewPlayerForm (){
                 <label id="status">
                     <div className="status">Status:</div>
                     <input value={status} onChange={(e) => setStatus(e.target.value.toLowerCase())}
+                    maxLength={5}
                     placeholder="Enter 'Field' or 'Bench'" 
                     title="Only enter 'field' or 'bench"
                     required/>
                 </label>
-                <button type="submit">Submit</button>
+                <button type="submit" className="submit">Submit</button>
             </form>
-        </>
+        </div>
     )
 
 }

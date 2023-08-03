@@ -3,11 +3,12 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: #e2fad7;
 }
-.App {
+/* .App {
 margin-top: 3.5em;
 
-}
+} */
 /* footer{
   display: flex;
   position: fixed;
@@ -21,36 +22,61 @@ header{
   /* flex-direction: row; */
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 255, 0.196);
+  background-color: #5e9445a9;
   position: fixed;
   font-weight: 600;
   font-size: x-large;
   color: aliceblue;
 }
 
-/* #search{
+#search {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-} */
+  flex-direction: row;
+}
+
+#search > form {
+  margin-left: 1.6rem;
+}
 
 button{
-  font-family: Arial, Helvetica, sans-serif;
-  /* border-radius: 10px; */
+  transition-duration: 0.4s;
   transition: opacity 0.2s;
-  font-size: .9em;
+}
+.enter{
+  width: 80px;
+  height: 35px;
+  font-size: small;
+  text-align: center;
+  margin-left: 10px;
+}
+.enter:hover{
+  background-color: #928b05;
+  border-color: #fff652;
+  color: #fff317e2;
+}
+.submit:hover {
+  background-color: #64a745;
+  border-color: #62fe1a;
+  color: #62fe1aa8;
 }
 .deleteButton:hover{
-  background-color:  rgba(196, 16, 16, 0.933);
+  background-color:  rgba(134, 13, 13, 0.842);
+    border-color: #ff0000;
+    color: #ffb9b9;
+}
+
+.seeMore:hover {
+  background-color: #646cff;
+  border-color: #64c6ff;
+  color: rgb(218, 238, 255);
 }
 #Allplayers {
-  display: flex;
-  flex-direction: wrap;
+  /* display: flex; */
+  /* flex-direction: wrap; */
   justify-content: space-evenly;
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(160px, 1fr));
-  margin-top: 2em;
+  /* margin-top: 2em; */
 }
 
  #newPlayer{
@@ -69,21 +95,90 @@ button{
   text-align: center;
   background-color: rgba(39, 74, 102, 0.5);
   max-width: 209.6px;
-  height: 400px;
+  height: 23em;
   overflow:auto;
+  border-radius: 5%;
   /* object-fit: cover; */
 }
-#player::-webkit-scrollbar{
+
+li {
+  list-style-type:none;
+text-align: left;
+}
+.created,.cohort, .jersey, .status, .team{
+  display: flex;
+  flex-direction: row;
+}
+.joined,.cohrt, .jers, .position, .teem{
+  font-weight: bolder;
+}
+.created > .time{
+  margin-left: 10px;
+}
+.cohort > .classhort {
+  margin-left: 4.6em;
+}
+.jersey > .jersNum{
+  margin-left: 4em;
+}
+.status > .stat {
+  margin-left: 3.8em;
+}
+.team > .teamName{
+  margin-left: 5em;
+}
+#singlePlayer{
+  flex-basis: 200px;
+  /* flex-grow: 1; */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+  margin: 5px 10px;
+  padding: 10px;
+  /* text-align: center; */
+  background-color: rgba(39, 74, 102, 0.5);
+  width: 23rem;
+  height: 37rem;
+  overflow:auto;
+  border-radius: 5%;
+}
+#singlePlayer > p {
+  display: flex;
+  flex-direction: column;
+}
+#player::-webkit-scrollbar, #singlePlayer::-webkit-scrollbar{
   display: none;
+}
+#singlePlayer > img {
+  border-radius: 5%;
+  width: fit-content;
+  max-width: 20em;
+  align-self: center;
+}
+#player > img, #singlePlayer > img {
+  object-fit: cover;
 }
 
 #player > img {
-  object-fit: cover;
+border-radius: 30%;
 }
 .seeMore{
   margin:15px;
 }
 
+#newPlayer {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+}
+.newPlayer {
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: row;
+}
+#name, #breed, #status, #image {
+  margin-right: 6px;
+}
 
 
 /* .logo {

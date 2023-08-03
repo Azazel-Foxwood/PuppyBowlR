@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import NewPlayerForm from './NewPlayer';
 import SearchBar from './SearchBar';
 // import DeletePlayer from './DeletePlayer';
+import Header from './Header'
 
 export default function AllPlayers({ players, setPlayers }) {
     
@@ -20,7 +21,7 @@ export default function AllPlayers({ players, setPlayers }) {
     return (
         <>
         {/* <SearchBar setPlayers={setPlayers} players={players}/> */}
-
+        <Header players={players} setPlayers={setPlayers}/><br/>
         <NewPlayerForm/>
 
         <div id='Allplayers'>
