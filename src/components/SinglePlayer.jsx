@@ -14,7 +14,7 @@ export default function SinglePlayer() {
             // (player.team.name ? player.team.name : '')
         }
         fetchSinglePlayer();
-    }, [id]);
+    }, []);
 
     const navigate = useNavigate();
 

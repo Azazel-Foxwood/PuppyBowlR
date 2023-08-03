@@ -14,7 +14,7 @@ export default function AllPlayers({ players, setPlayers }) {
                 setPlayers(await getAllPlayers(setPlayers));
         }
         fetchAllPlayers();
-    }, [setPlayers]); 
+    }, []); 
 
     const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ export default function AllPlayers({ players, setPlayers }) {
         <>
         {/* <SearchBar setPlayers={setPlayers} players={players}/> */}
         <Header players={players} setPlayers={setPlayers}/><br/>
-        <NewPlayerForm/>
+        <NewPlayerForm setPlayers={setPlayers}/>
 
         <div id='Allplayers'>
 
@@ -36,7 +36,7 @@ export default function AllPlayers({ players, setPlayers }) {
                     <div className='button'>
                     <button className='seeMore' onClick={() => {navigate(`/players/${player.id}`)}}>see more</button>
                     </div>
-                    <button className='deleteButton' onClick={() => {removePlayer(player.id)}}>delete</button>
+                    <button className='deleteButton' onClick={() => {{removePlayer(player.id)}}}>delete</button>
                     </div>
                 </div>
             ))}

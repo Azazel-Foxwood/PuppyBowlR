@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {addNewPlayer} from '../API';
+import { getAllPlayers } from '../API';
+import { useNavigate } from "react-router-dom";
 
-export default function NewPlayerForm (){
 
+export default function NewPlayerForm ({setPlayers}){
+
+    const navigate = useNavigate();
     // const [search, setSearch] =useState('');
     const [name, setName] = useState([]);
     const [breed, setBreed] = useState([]);
@@ -12,24 +16,25 @@ export default function NewPlayerForm (){
 
     async function handleSubmit(event) {
         event.preventDefault();
-        const defualtImg = 'https://learndotresources.s3.amazonaws.com/workshop/60ad725bbe74cd0004a6cba0/puppybowl-default-dog.png';
-        // {
-        //     if (name === "" || breed === "") { alert("Name and/or breed is blank. Please fill out the information") }
-        // }
+        
         if (status === 'field' || status === 'bench' ){ await addNewPlayer(name, breed, status, imageUrl)
+            navigate(0)
         }else {
             alert("Only enter 'field' or 'bench' ")
         }
-        if (imageUrl === '') {
-            setImageUrl(defualtImg)
-        }
-        // (imageUrl === '' || imageUrl === 'f'? setImageUrl("https://learndotresources.s3.amazonaws.com/workshop/60ad725bbe74cd0004a6cba0/puppybowl-default-dog.png"): '')
-        //     setStatus.toLowerCase()
-        // }
-
+        // getAllPlayers();
 
 }
-
+    
+    useEffect (() => {
+        async function reFetchAllPlayers () {
+            const response = await getAllPlayers();
+            setPlayers(response);
+        }
+        reFetchAllPlayers();
+    }, [])
+        
+        
     return( 
         <div id="newPlayer">
             <h2>Enter Your Pup to the Roaster</h2>
