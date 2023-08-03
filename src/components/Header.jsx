@@ -1,10 +1,12 @@
+// import { useState } from "react"
 import SearchBar from "./SearchBar"
 
 
-export default function Header ({ players, setPlayers }) {
+export default function Header () {
+    
     return (
         <header>
-            <SearchBar setPlayers={setPlayers} players={players}/>
+            <SearchBar />
         </header>
     )
 }

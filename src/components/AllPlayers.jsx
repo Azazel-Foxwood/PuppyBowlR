@@ -1,12 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getAllPlayers, removePlayer } from '../API';
 import { useNavigate} from 'react-router-dom';
 import NewPlayerForm from './NewPlayer';
 import Header from './Header'
 
 
-export default function AllPlayers({players, setPlayers}) {
-
+export default function AllPlayers() {
+    const [players, setPlayers] = useState([])
     useEffect(() => {
         async function fetchAllPlayers () {
                 setPlayers(await getAllPlayers(setPlayers));
